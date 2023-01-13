@@ -211,7 +211,8 @@ Yellow #eab90c
       </section>
 
       <section>
-        All approaches perform well on simple test problem
+        All approaches perform well on simple test problem<br/>
+        <img src="img_npe/icon_cr.svg" height="60px"/>
         <img src="img_npe/CR3.png" class="r-stretch" />
       </section>
 
@@ -221,7 +222,15 @@ Yellow #eab90c
       </section>
 
       <section>
-        Resampling the missingness pattern for each dataset improves performance
+        Variable dataset size as a special case of missing data<br/>
+        <img src="img_npe/icon_sin.svg" height="60px"/><br/>
+        <img src="img_npe/Variable_length_loss.svg" width="48%" />
+        <img src="img_npe/Variable_length_rl.svg" width="48%" />
+        Augment by 0/1 improves performance due to better cost function approximation with individual-specific missingness
+      </section>
+
+      <section>
+        Time labels encoding performs not robustly in case of oscillatory data
         <img src="img_npe/Osc_augment_time_quantile.png" class="r-stretch" />
       </section>
 
@@ -230,25 +239,14 @@ Yellow #eab90c
       </section>
 
       <section>
-        Variable dataset size as a special case of missing data
-        <img src="img_npe/Variable_length_loss.svg" width="48%" />
-        <img src="img_npe/Variable_length_rl.svg" width="48%" />
-        Augment by 0/1 improves performance due to better cost function approximation
-      </section>
-
-      <section>
-        Scales to more complex inference problems
+        Scales to more complex inference problems<br/>
+        <img src="img_npe/icon_sir.svg" height="60px"/><br/>
         <img src="img_npe/SIR.png" class="r-stretch" />
       </section>
 
       <section>
-        Able to unravel parameter-dependent missingness
+        Able to unravel parameter-dependent missingness<br/>
         <img src="img_npe/CR11_missingness_par_augment01.png" class="r-stretch" />
-      </section>
-
-      <section>
-        inappropriate imputation can lead to biased results
-        <img src="img_npe/linear_interpolation.png" class="r-stretch" />
       </section>
 
       <section>
@@ -260,13 +258,18 @@ Yellow #eab90c
       </section>
 
       <section>
+        Inappropriate imputation can lead to biased results
+        <img src="img_npe/linear_interpolation.png" class="r-stretch" />
+      </section>
+
+      <section>
         <h2>There are no free data</h2>
-        <div style="text-align: left;">
+        <div style="text-align: left; font-size: 10pt;">
           Imputation means that instead of working with available data $x$, we try to reconstruct the full data $\bar
           x$,
-          and estimate parameter probabilities $\pi(\theta|\bar x)π(θ)$ instead of $\pi(\theta|x)$.
+          and estimate parameter probabilities $\pi(\theta|\bar x)$ instead of $\pi(\theta|x)$.
           However, the true full data are unknown, therefore we need to take uncertainty in $\bar x$ into account,
-          considering a full distribution of values $p(\bar x|x)$.
+          considering a full distribution of values $\pi(\bar x|x)$.
 
           <p />
           We must either make up a distribution (introducing a bias), or use a faithful approximation
@@ -274,18 +277,18 @@ Yellow #eab90c
 
           <p />
           However, if we integrate out over all possible realizations of full data, we obtain
-          $\int \pi(\theta|\bar x)\pi(\bar x|x)d\bar x = \pi(\theta|x)$ (or similarly if the missingness,
-          i.e. we just recover the posterior given the available data $x$.
+          $\int \pi(\theta|\bar x)\pi(\bar x|x)d\bar x = \pi(\theta|x)$ (or similarly $\pi(\theta|x,\tau)$).
         </div>
+        TLDR: When doing uncertainty quantification properly, we just recover the same posterior.
       </section>
 
       <section data-background="#073669ff" data-background-transition="zoom" data-auto-animate>
-        <h1>Conclusion</h1>
+        <h1>Discussion</h1>
       </section>
 
       <section data-auto-animate>
-        <h1>Conclusion</h1>
-        <div style="display: flex">
+        <h1>Discussion</h1>
+        <div style="text-align: left; align: left;">
           <ul>
             <li class="fragment">Missing data are ubiquitous in experimental studies</li>
             <li class="fragment">We enabled amortized inference via BayesFlow for such data</li>
@@ -294,6 +297,17 @@ Yellow #eab90c
             <li class="fragment">Robust performance on various examples</li>
             <li class="fragment">With some more general implications</li>
           </ul>
+          <br/><br/>
+          <div class="fragment" style="text-align: left; align: left;">
+            Outlook<br/>
+            <ul>
+              <li class="fragment">More challenging applications</li>
+              <li class="fragment">In combination with NLME</li>
+              <li class="fragment">Accuracy - simulation tradeoff</li>
+              <li class="fragment">...</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
 
@@ -340,7 +354,7 @@ Yellow #eab90c
         RevealMath, RevealZoom]
     });
     Reveal.configure({ slideNumber: 'c/t' });
-    Reveal.configure({ showSlideNumber: 'none' });
+    Reveal.configure({ showSlideNumber: 'all' });
 
   </script>
 </body>
