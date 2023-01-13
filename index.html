@@ -222,20 +222,20 @@ Yellow #eab90c
       </section>
 
       <section>
-        Variable dataset size as a special case of missing data<br/>
+        Time labels encoding performs not robustly in case of oscillatory data<br/>
         <img src="img_npe/icon_sin.svg" height="60px"/><br/>
-        <img src="img_npe/Variable_length_loss.svg" width="48%" />
-        <img src="img_npe/Variable_length_rl.svg" width="48%" />
-        Augment by 0/1 improves performance due to better cost function approximation with individual-specific missingness
-      </section>
-
-      <section>
-        Time labels encoding performs not robustly in case of oscillatory data
         <img src="img_npe/Osc_augment_time_quantile.png" class="r-stretch" />
       </section>
 
       <section>
         <img src="img_npe/Osc_convergence_log.svg" />
+      </section>
+
+      <section>
+        Variable dataset size as a special case of missing data<br/>
+        <img src="img_npe/Variable_length_loss.svg" width="48%" />
+        <img src="img_npe/Variable_length_rl.svg" width="48%" />
+        Augment by 0/1 improves performance due to better cost function approximation with individual-specific missingness
       </section>
 
       <section>
@@ -250,7 +250,7 @@ Yellow #eab90c
       </section>
 
       <section>
-        <h2>Can missing value imputation help?</h2>
+        <h2>Can we just impute missing values?</h2>
         <div class="r-stack">
           <img src="img_npe/impute1.svg" width="80%" />
           <img src="img_npe/impute2.svg" width="80%" class="fragment" />
